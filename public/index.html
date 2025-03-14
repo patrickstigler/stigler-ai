@@ -472,86 +472,87 @@
           </div>
 
           <div class="col-lg-6">
-  <div class="contact-form card" data-aos="fade-up" data-aos-delay="300">
-    <div class="card-body p-4 p-lg-5">
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="needs-validation">
-        <!-- Hidden input für den Formularnamen -->
-        <input type="hidden" name="form-name" value="contact">
-        
-        <p class="d-none">
-          <label>
-            Wenn du ein Mensch bist, bitte leer lassen: <input name="bot-field" />
-          </label>
-        </p>
+<div class="contact-form card" data-aos="fade-up" data-aos-delay="300">
+  <div class="card-body p-4 p-lg-5">
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="needs-validation">
+      <!-- Verstecktes Feld für den Formularnamen -->
+      <input type="hidden" name="form-name" value="contact">
+      
+      <!-- Honeypot-Feld zur Spam-Prävention -->
+      <p class="d-none">
+        <label>
+          Wenn du ein Mensch bist, bitte leer lassen: <input name="bot-field" />
+        </label>
+      </p>
                   
-        <!-- Form Status Messages -->
-        <div class="form-status d-none">
-          <div class="alert alert-success d-none">
-            Vielen Dank für Ihre Nachricht. Ich werde mich zeitnah bei Ihnen melden.
-          </div>
-          <div class="alert alert-danger d-none">
-            Entschuldigung, beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.
+      <!-- Formular-Statusnachrichten -->
+      <div class="form-status d-none">
+        <div class="alert alert-success d-none">
+          Vielen Dank für Ihre Nachricht. Ich werde mich zeitnah bei Ihnen melden.
+        </div>
+        <div class="alert alert-danger d-none">
+          Entschuldigung, beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.
+        </div>
+      </div>
+
+      <div class="row gy-4">
+        <div class="col-12">
+          <input type="text" 
+                 name="name" 
+                 class="form-control" 
+                 placeholder="Ihr Name *" 
+                 required>
+          <div class="invalid-feedback">
+            Bitte geben Sie Ihren Namen ein.
           </div>
         </div>
 
-        <div class="row gy-4">
-          <div class="col-12">
-            <input type="text" 
-                   name="name" 
-                   class="form-control" 
-                   placeholder="Ihr Name *" 
-                   required>
-            <div class="invalid-feedback">
-              Bitte geben Sie Ihren Namen ein.
-            </div>
-          </div>
-
-          <div class="col-12">
-            <input type="email" 
-                   class="form-control" 
-                   name="email" 
-                   placeholder="Ihre E-Mail *" 
-                   required>
-            <div class="invalid-feedback">
-              Bitte geben Sie eine gültige E-Mail-Adresse ein.
-            </div>
-          </div>
-
-          <div class="col-12">
-            <input type="text" 
-                   class="form-control" 
-                   name="subject" 
-                   placeholder="Betreff *" 
-                   required>
-            <div class="invalid-feedback">
-              Bitte geben Sie einen Betreff ein.
-            </div>
-          </div>
-
-          <div class="col-12">
-            <textarea class="form-control" 
-                      name="message" 
-                      rows="6" 
-                      placeholder="Ihre Nachricht *" 
-                      required></textarea>
-            <div class="invalid-feedback">
-              Bitte geben Sie Ihre Nachricht ein.
-            </div>
-          </div>
-
-          <div class="col-12 text-center">
-            <button type="submit" class="btn btn-submit w-100">
-              <span class="default">Nachricht senden</span>
-              <span class="loading d-none">
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                Wird gesendet...
-              </span>
-            </button>
+        <div class="col-12">
+          <input type="email" 
+                 name="email" 
+                 class="form-control" 
+                 placeholder="Ihre E-Mail *" 
+                 required>
+          <div class="invalid-feedback">
+            Bitte geben Sie eine gültige E-Mail-Adresse ein.
           </div>
         </div>
-      </form>
-    </div>
+
+        <div class="col-12">
+          <input type="text" 
+                 name="subject" 
+                 class="form-control" 
+                 placeholder="Betreff *" 
+                 required>
+          <div class="invalid-feedback">
+            Bitte geben Sie einen Betreff ein.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <textarea name="message" 
+                    class="form-control" 
+                    rows="6" 
+                    placeholder="Ihre Nachricht *" 
+                    required></textarea>
+          <div class="invalid-feedback">
+            Bitte geben Sie Ihre Nachricht ein.
+          </div>
+        </div>
+
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-submit w-100">
+            <span class="default">Nachricht senden</span>
+            <span class="loading d-none">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Wird gesendet...
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
+</div>
           </div>
         </div>
       </div>
@@ -626,31 +627,52 @@
   },
 });
 </script>
-
-<!-- Email Form -->
+<!-- Netlify Mail --> 
 <script>
-  const form = document.querySelector('form[name="contact"]');
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Verhindert das Standardverhalten
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector("form[name='contact']");
+  const submitButton = form.querySelector("button[type='submit']");
+  const successAlert = document.querySelector(".alert-success");
+  const errorAlert = document.querySelector(".alert-danger");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Standardformular-Submit unterbinden
+    submitButton.disabled = true; // Button vorübergehend deaktivieren
+
+    // Formulardaten sammeln
     const formData = new FormData(form);
-    
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: formData
+    // Daten in URL-kodiertes Format umwandeln
+    const encodedData = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      encodedData.append(key, value);
+    }
+
+    // Formulardaten per fetch an Netlify senden
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodedData.toString()
     })
     .then(response => {
       if (response.ok) {
-        document.querySelector('.alert-success').classList.remove('d-none');
+        // Erfolg: Erfolgsmeldung anzeigen, Fehler ausblenden
+        successAlert.classList.remove("d-none");
+        errorAlert.classList.add("d-none");
         form.reset();
       } else {
-        document.querySelector('.alert-danger').classList.remove('d-none');
+        throw new Error("Server-Antwort war nicht ok.");
       }
     })
     .catch(error => {
-      document.querySelector('.alert-danger').classList.remove('d-none');
+      // Fehler: Fehlermeldung anzeigen, Erfolg ausblenden
+      errorAlert.classList.remove("d-none");
+      successAlert.classList.add("d-none");
+    })
+    .finally(() => {
+      submitButton.disabled = false; // Button wieder aktivieren
     });
   });
+});
 </script>
 
 </body>
