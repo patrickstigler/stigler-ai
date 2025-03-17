@@ -1,0 +1,23 @@
+# macOS-spezifische Dateien
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icons und versteckte Dateien
+Icon?
+._*
+
+# Systemverzeichnisse und temporäre Dateien
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Weitere von macOS erzeugte Dateien
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
