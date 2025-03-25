@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+Disallow: /assets/vendor/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /assets/img/
+Sitemap: https://stigler-ai.com/sitemap.xml 
