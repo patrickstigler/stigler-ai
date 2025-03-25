@@ -941,7 +941,7 @@ body[data-theme=dark] .hljs-deletion {
   flex-direction: column;
   bottom: var(--chat--window--bottom, var(--chat--spacing));
   right: var(--chat--window--right, var(--chat--spacing));
-  z-index: var(--chat--window--z-index, 9999);
+  z-index: var(--chat--window--z-index, 9998);
   max-width: calc(100% - var(--chat--window--right, var(--chat--spacing)) * 2);
   max-height: calc(100% - var(--chat--window--bottom, var(--chat--spacing)) * 2)
 }
