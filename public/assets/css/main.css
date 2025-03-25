@@ -1730,3 +1730,46 @@ section,
     margin-top: 30px;
   }
 }
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(var(--accent-color-rgb), 0.1);
+}
+
+.breadcrumb {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  color: var(--default-color);
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "/";
+  margin: 0 0.5rem;
+  color: var(--text-color-light);
+}
+
+.breadcrumb-item a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--accent-color-dark);
+}
+
+.breadcrumb-item.active {
+  color: var(--text-color-light);
+}
