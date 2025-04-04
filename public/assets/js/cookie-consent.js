@@ -69,7 +69,7 @@ class CookieConsent {
   enableGoogleAnalytics() {
     // Load Google Analytics script
     const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5V5NY3VXFY';
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-K17VS7Y7VW';
     script.async = true;
     document.head.appendChild(script);
     
@@ -79,7 +79,7 @@ class CookieConsent {
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-    gtag('config', 'G-5V5NY3VXFY', {
+    gtag('config', 'G-K17VS7Y7VW', {
       'anonymize_ip': true,
       'cookie_flags': 'SameSite=None;Secure'
     });
