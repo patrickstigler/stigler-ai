@@ -2,49 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://stigler-ai.com/</loc>
-    <lastmod>2024-03-25</lastmod>
+    <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://stigler-ai.com/impressum.html</loc>
-    <lastmod>2024-03-25</lastmod>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://stigler-ai.com/datenschutz.html</loc>
+    <lastmod>2024-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://stigler-ai.com/innovationszentrum.html</loc>
-    <lastmod>2024-03-25</lastmod>
+    <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stigler-ai.com/digitale-produktionssteuerung.html</loc>
-    <lastmod>2024-03-25</lastmod>
+    <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stigler-ai.com/iot-facility-management.html</loc>
-    <lastmod>2024-03-25</lastmod>
+    <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stigler-ai.com/smart-parking-system.html</loc>
-    <lastmod>2024-03-25</lastmod>
+    <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stigler-ai.com/intelligente-betriebsgastronomie-steuerung.html</loc>
-    <lastmod>2024-03-25</lastmod>
+    <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stigler-ai.com/augmented-reality-diagnose.html</loc>
-    <lastmod>2024-03-25</lastmod>
+    <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
