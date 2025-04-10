@@ -87,17 +87,17 @@
 
 /* Angepasste Variablen für den Chat – angepasst an den Stil deiner Seite */
 :root {
-  --chat--color-primary: #0056b3;
-  --chat--color-primary-shade-50: #004eaa;
-  --chat--color-primary-shade-100: #004a9a;
-  --chat--color-secondary: #007bff;
-  --chat--color-secondary-shade-50: #006fe6;
+  --chat--color-primary: #3498db;
+  --chat--color-primary-shade-50: #2c8bc7;
+  --chat--color-primary-shade-100: #257ab3;
+  --chat--color-secondary: #3498db;
+  --chat--color-secondary-shade-50: #2c8bc7;
   --chat--color-white: #ffffff;
   --chat--color-light: #f8f9fa;
   --chat--color-light-shade-50: #eceeef;
   --chat--color-light-shade-100: #dee2e6;
   --chat--color-medium: #ced4da;
-  --chat--color-dark: #0f2943;
+  --chat--color-dark: #2c3e50;
   --chat--color-disabled: #6c757d;
   --chat--color-typing: #404040;
   --chat--spacing: 1rem;
