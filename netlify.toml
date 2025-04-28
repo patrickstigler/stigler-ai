@@ -21,8 +21,8 @@
 		"yandex"
 	]
 
- [[plugins]]
-package = "netlify-plugin-no-more-404"
+[[plugins]]
+  package = "netlify-plugin-no-more-404"
 
   # all inputs are optional, we just show you the defaults below
   [plugins.inputs]
