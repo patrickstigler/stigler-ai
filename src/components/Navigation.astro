@@ -1,0 +1,17 @@
+---
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/' || currentPath === '';
+---
+
+<nav id="navmenu" class="navmenu">
+  <ul>
+    <li><a href="/" class:list={[isHome && 'active']}>Startseite</a></li>
+    <li><a href="/#about">Über mich</a></li>
+    <li><a href="/leistungen" class:list={[currentPath === '/leistungen' && 'active']}>Leistungen</a></li>
+    <li><a href="/#resume">Lebenslauf</a></li>
+    <li><a href="/#portfolio" class:list={[isHome && 'active']}>Projektportfolio</a></li>
+    <li><a href="/blog" class:list={[currentPath.startsWith('/blog') && 'active']}>Blog</a></li>
+    <li><a href="/kontakt" class:list={[currentPath === '/kontakt' && 'active']}>Kontakt</a></li>
+  </ul>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-hidden="true"></i>
+</nav>

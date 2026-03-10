@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Kontakt | Stigler AI Innovations"
+  description="Kontaktieren Sie Patrick Stigler für KI-Beratung und Digitalisierungsprojekte. Jetzt unverbindliches Erstgespräch vereinbaren."
+>
+  <div class="page-title">
+    <div class="breadcrumbs">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/"><i class="bi bi-house"></i> Home</a></li>
+          <li class="breadcrumb-item active current" aria-current="page">Kontakt</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="title-wrapper">
+      <h1>Kontakt</h1>
+      <p>Gemeinsam Innovation gestalten – ich freue mich auf Ihre Nachricht.</p>
+    </div>
+  </div>
+
+  <section class="contact section light-background">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="content" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="display-6 mb-4">Gemeinsam Innovation gestalten</h2>
+            <p class="lead mb-4">Sie haben eine visionäre Idee oder ein zukunftsweisendes Projekt? Lassen Sie uns gemeinsam Ihre digitalen Herausforderungen meistern. Ich freue mich darauf, Sie bei Ihrer digitalen Transformation zu unterstützen.</p>
+            <div class="contact-info mt-5">
+              <div class="info-item d-flex mb-3">
+                <i class="bi bi-envelope-at me-3" aria-hidden="true"></i>
+                <span>Kontakt@stigler-ai.com</span>
+              </div>
+              <div class="info-item d-flex mb-3">
+                <i class="bi bi-telephone me-3" aria-hidden="true"></i>
+                <span>+49 151 61488842</span>
+              </div>
+              <div class="info-item d-flex mb-4">
+                <i class="bi bi-geo-alt me-3" aria-hidden="true"></i>
+                <span>Stuttgart, Baden-Württemberg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-form card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-body p-4 p-lg-5">
+              <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="needs-validation">
+                <input type="hidden" name="form-name" value="contact" />
+                <p class="d-none">
+                  <label>Wenn du ein Mensch bist, bitte leer lassen: <input name="bot-field" /></label>
+                </p>
+                <div class="form-status d-none">
+                  <div class="alert alert-success d-none">Vielen Dank für Ihre Nachricht. Ich werde mich zeitnah bei Ihnen melden.</div>
+                  <div class="alert alert-danger d-none">Entschuldigung, beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie mich direkt per E-Mail.</div>
+                </div>
+                <div class="row gy-4">
+                  <div class="col-12">
+                    <input type="text" name="name" class="form-control" placeholder="Vor- und Nachname *" required />
+                    <div class="invalid-feedback">Bitte geben Sie Ihren vollständigen Namen ein.</div>
+                  </div>
+                  <div class="col-12">
+                    <input type="email" name="email" class="form-control" placeholder="E-Mail-Adresse *" required />
+                    <div class="invalid-feedback">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" name="subject" class="form-control" placeholder="Anliegen *" required />
+                    <div class="invalid-feedback">Bitte geben Sie Ihr Anliegen ein.</div>
+                  </div>
+                  <div class="col-12">
+                    <textarea name="message" class="form-control" rows="6" placeholder="Ihre Nachricht *" required></textarea>
+                    <div class="invalid-feedback">Bitte geben Sie Ihre Nachricht ein.</div>
+                  </div>
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-submit w-100">
+                      <span class="default">Nachricht senden</span>
+                      <span class="loading d-none"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Wird gesendet...</span>
+                    </button>
+                    <p class="form-text mt-2 mb-0">Mit dem Absenden erklären Sie sich mit unserer <a href="/datenschutz">Datenschutzerklärung</a> einverstanden.</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.querySelector("form[name='contact']");
+      if (!form) return;
+      const submitButton = form.querySelector("button[type='submit']");
+      const successAlert = form.querySelector(".alert-success");
+      const errorAlert = form.querySelector(".alert-danger");
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        submitButton.disabled = true;
+        const formData = new FormData(form);
+        const encodedData = new URLSearchParams();
+        for (const [key, value] of formData.entries()) { encodedData.append(key, value); }
+        fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: encodedData.toString() })
+          .then(function(r) {
+            if (r.ok) { successAlert.classList.remove("d-none"); errorAlert.classList.add("d-none"); form.reset(); } else { throw new Error("Server-Antwort war nicht ok."); }
+          })
+          .catch(function() { errorAlert.classList.remove("d-none"); successAlert.classList.add("d-none"); })
+          .finally(function() { submitButton.disabled = false; });
+      });
+    });
+  </script>
+</BaseLayout>

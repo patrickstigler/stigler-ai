@@ -1,5 +1,6 @@
 [build]
-  publish = "public"
+  command = "npm run build"
+  publish = "dist"
 
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
@@ -10,7 +11,7 @@
 	baseUrl = "https://stigler-ai.com"
 
 	# Path to the sitemap URL (optional, default = /sitemap.xml)
-	sitemapPath = "/sitemap.xml"
+	sitemapPath = "/sitemap-index.xml"
 
 	# Time in seconds to not submit the sitemap after successful submission
 	ignorePeriod = 0

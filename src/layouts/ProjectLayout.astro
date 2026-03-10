@@ -1,0 +1,44 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  breadcrumbs: Array<{ name: string; url: string }>;
+  pageTitle: string;
+  pageSubtitle?: string;
+}
+
+const { title, description, keywords, ogImage, breadcrumbs, pageTitle, pageSubtitle } = Astro.props;
+const site = 'https://stigler-ai.com';
+const fullBreadcrumbs = breadcrumbs.map(b => ({ ...b, url: b.url.startsWith('http') ? b.url : `${site}${b.url.startsWith('/') ? b.url : '/' + b.url}` }));
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogImage={ogImage}
+  ogType="article"
+  bodyClass="portfolio-details-page"
+  breadcrumbs={fullBreadcrumbs}
+>
+  <div class="page-title">
+    <div class="breadcrumbs">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/"><i class="bi bi-house"></i> Home</a></li>
+          <li class="breadcrumb-item"><a href="/#portfolio">Portfolio</a></li>
+          <li class="breadcrumb-item active current" aria-current="page">{pageTitle}</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="title-wrapper">
+      <h1>{pageTitle}</h1>
+      {pageSubtitle && <p>{pageSubtitle}</p>}
+    </div>
+  </div>
+  <slot />
+</BaseLayout>

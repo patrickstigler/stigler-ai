@@ -1,0 +1,61 @@
+---
+export interface Props {
+  type?: 'person' | 'webpage' | 'article';
+  name?: string;
+  description?: string;
+  url?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+}
+
+const { type = 'webpage', name, description, url, breadcrumbs } = Astro.props;
+const site = Astro.site?.href ?? 'https://stigler-ai.com';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Patrick Stigler",
+  "url": site,
+  "jobTitle": "IT-Digitalisierungs- & Innovationsmanager",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Stigler AI Innovations"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/patrick-stigler"
+  ],
+  "telephone": "+49 151 61488842",
+  "email": "Kontakt@stigler-ai.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "DE"
+  }
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Stigler AI Innovations",
+  "url": site,
+  "description": "KI-Beratung, Prozessoptimierung und digitale Transformation für Unternehmen",
+  "founder": personSchema,
+  "areaServed": ["DE", "AT", "CH"],
+  "serviceType": ["KI-Strategie", "Prozessoptimierung", "Digitale Transformation", "Innovationsmanagement"],
+  "email": "Kontakt@stigler-ai.com"
+};
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((crumb: { name: string; url: string }, index: number) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": crumb.name,
+    "item": crumb.url
+  }))
+} : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+{breadcrumbSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+)}

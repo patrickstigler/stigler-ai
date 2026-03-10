@@ -1,0 +1,9 @@
+# Legacy .html URLs → directory URLs (Netlify)
+/impressum.html    /impressum    301
+/datenschutz.html  /datenschutz  301
+/innovationszentrum.html  /innovationszentrum  301
+/digitale-produktionssteuerung.html  /digitale-produktionssteuerung  301
+/smart-parking-system.html  /smart-parking-system  301
+/augmented-reality-diagnose.html  /augmented-reality-diagnose  301
+/intelligente-betriebsgastronomie-steuerung.html  /intelligente-betriebsgastronomie-steuerung  301
+/iot-facility-management.html  /iot-facility-management  301
