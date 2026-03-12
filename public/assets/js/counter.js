@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const yearsStat = document.querySelector('[data-counter="years"]');
         const projectsStat = document.querySelector('[data-counter="projects"]');
         
-        if (yearsStat) animateCounter(yearsStat, 15);
-        if (projectsStat) animateCounter(projectsStat, 100);
+        if (yearsStat) animateCounter(yearsStat, 10);
+        if (projectsStat) animateCounter(projectsStat, 50);
     }, 500);
 }); 
